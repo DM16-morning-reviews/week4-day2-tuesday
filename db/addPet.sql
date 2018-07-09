@@ -1,0 +1,1 @@
+INSERT INTO pets (name, img) values ($1, $2) 
