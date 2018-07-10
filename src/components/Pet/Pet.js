@@ -46,7 +46,7 @@ class Pet extends Component {
         ) : (
           <input
             type="text"
-            placeholder="Insert New Pet Name"
+            placeholder="Insert New Pet Img URL"
             onChange={e => this.handleInput(e.target.value, "imgInput")}
           />
         )}
