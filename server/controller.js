@@ -8,5 +8,10 @@ module.exports = {
     const { name, img } = req.body;
 
     db.addPet(name, img).then(pets => res.status(200).send(pets));
+  },
+  editPet: (req, res) => {
+    const db = req.app.get("db");
+    const { id, name, img } = req.body;
+    db.editPet(id, name, img).then(pets => res.status(200).send(pets));
   }
 };

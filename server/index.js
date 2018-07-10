@@ -15,6 +15,7 @@ massive(process.env.CONNECTION_STRING).then(db => {
 
 app.get("/api/pets", controller.getAllPets);
 app.post("/api/pets", controller.addPet);
+app.put("/api/pets", controller.editPet);
 
 app.listen(port, () => {
   console.log(`Port is running on: ${port}`);

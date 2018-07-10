@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import axios from "axios";
 
+import Pet from "../Pet/Pet";
+
 class DashBoard extends Component {
   constructor() {
     super();
@@ -28,6 +30,10 @@ class DashBoard extends Component {
     axios.post("/api/pets", { name, img }).then(() => this.getPets());
   };
 
+  changePet = (id, name, img) => {
+    axios.put("/api/pets", { id, name, img }).then(() => this.getPets());
+  };
+
   handleInput = (val, prop) => {
     this.setState({
       [prop]: val
@@ -41,10 +47,13 @@ class DashBoard extends Component {
 
     let allPets = pets.map(e => {
       return (
-        <div key={e.id}>
-          <h2>{e.name}</h2>
-          <img src={e.img} alt="Pet" />
-        </div>
+        <Pet
+          key={e.id}
+          id={e.id}
+          name={e.name}
+          img={e.img}
+          changePet={this.changePet}
+        />
       );
     });
     return (
